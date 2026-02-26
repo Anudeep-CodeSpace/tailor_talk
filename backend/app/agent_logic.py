@@ -30,7 +30,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, "data", "Titanic-Dataset.csv")
 OUTPUT_PLOT_DIR = os.path.join(BASE_DIR, "outputs")
 os.makedirs(OUTPUT_PLOT_DIR, exist_ok=True)
-LLM_MODEL = os.getenv('')
 
 # model Setup
 model = ChatOpenAI(
