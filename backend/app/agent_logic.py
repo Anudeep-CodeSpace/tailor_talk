@@ -28,7 +28,7 @@ model = ChatOpenAI(
     base_url=os.getenv('BASE_URL'),
     api_key=os.getenv('API_KEY'),
     temperature=0,
-    model="gemini-2.5-flash"
+    model="llama-3.3-70b-versatile"
 )
 
 # System Prompt
