@@ -13,6 +13,7 @@ BACKEND_URL = st.secrets.get("BACKEND_URL", "http://localhost:8000/chat")
 st.set_page_config(page_title="TailorTalk Titanic Agent", page_icon="🚢", layout="centered")
 st.title("🚢 TailorTalk: Titanic Data Assistant")
 st.markdown("Ask me anything about the Titanic dataset! Try asking for a histogram or average fares.")
+st.warning('Backend uses a free tier llm, can hit rate limit quickly.', icon='⚠️')
 
 # --- Session State for Chat History ---
 if "messages" not in st.session_state:
