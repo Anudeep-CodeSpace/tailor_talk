@@ -12,9 +12,17 @@ print('done')
 
 # Configuration
 BASE_URL = os.getenv('BASE_URL')
+API_KEY = os.getenv('API_KEY')
+LLM_MODEL = os.getenv('LLM_MODEL')
 
 if not BASE_URL:
     print('[ERROR] No Base URL (LLM)\nUpdate "BASE_URL" Environment Variable and try again.')
+    exit()
+if not API_KEY:
+    print('[ERROR] No API Key (LLM)\nUpdate "API_KEY" Environment Variable and try again.')
+    exit()
+if not LLM_MODEL:
+    print('[ERROR] No LLM Model Specified (LLM)\nUpdate "LLM_MODEL" Environment Variable and try again.')
     exit()
 
 # Paths
@@ -22,13 +30,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, "data", "Titanic-Dataset.csv")
 OUTPUT_PLOT_DIR = os.path.join(BASE_DIR, "outputs")
 os.makedirs(OUTPUT_PLOT_DIR, exist_ok=True)
+LLM_MODEL = os.getenv('')
 
 # model Setup
 model = ChatOpenAI(
-    base_url=os.getenv('BASE_URL'),
-    api_key=os.getenv('API_KEY'),
+    base_url=BASE_URL,
+    api_key=API_KEY,
     temperature=0,
-    model="llama-3.3-70b-versatile"
+    model=LLM_MODEL
 )
 
 # System Prompt
@@ -41,6 +50,7 @@ CRITICAL INSTRUCTIONS:
 3. DO NOT recreate the dataframe using a dictionary or sample data.
 4. DO NOT assume the data is limited to the rows you see in the prompt.
 5. Perform all calculations, aggregations, and filtering on the existing `df` variable.
+6. Round the results obtained to 2 decimal places.
 
 VISUALIZATION RULES:
 - When asked for charts, use matplotlib or seaborn.
