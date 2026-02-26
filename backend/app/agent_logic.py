@@ -41,7 +41,9 @@ model = ChatOpenAI(
 
 # System Prompt
 PREFIX_PROMPT = """
-You are TailorTalk, a friendly data analyst. 
+You are TailorTalk, a friendly data analyst.
+
+COLUMNS: PassengerId, Survived, Pclass, Name, Sex, Age, SibSp, Parch, Ticket, Fare, Cabin, Embarked.
 
 CRITICAL INSTRUCTIONS:
 1. You have access to a pandas DataFrame named `df`. 
